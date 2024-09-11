@@ -39,7 +39,7 @@
 - name: Move all the files to parent Directory
   become: yes
   shell:
-    mv {{installation_dir}}/kafka_*/* {{installation_dir}}/.
+    mv {{installation_dir}}/kafka-*/* {{installation_dir}}/.
 
 - name: Update the log path
   become: yes
