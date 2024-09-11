@@ -2,13 +2,14 @@
 - hosts: all
   become: yes 
   tasks:
-    name: "Clean machine"
-    include_role:
-      name: cleaner
+    - name: "Clean machine"
+      include_role:
+        name: cleaner
+
 - hosts: kafka
   become: yes 
   tasks:
-    name: "Install Kafka"
-    include_role:
-      name: kafka
-      tasks_from: install
+    - name: "Install Kafka"
+      include_role:
+        name: kafka
+        tasks_from: install
