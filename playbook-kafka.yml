@@ -2,10 +2,9 @@
 - hosts: all
   become: yes 
   pre_tasks:
-    - name: install updates
-      tags: always
-      apt:
-        upgrade: dist
-        update_cache: yes
-
-  
+    - import_role:
+      name: cleaner
+  tasks:
+    import_role:
+      name: kafka
+      tasks_from: install
