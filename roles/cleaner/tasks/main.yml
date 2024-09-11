@@ -10,12 +10,12 @@
   failed_when:
     - stop_service.failed == true
     - '"Could not find the requested service" not in stop_service.msg'
-- name: Install JRE after apt update
+
+- name: Remove kafka and zookeeper
   become: yes
   apt:
-    name: 
-      name: '{{item}}'
-      state: absent
+    name: '{{item}}'
+    state: absent
     update_cache: yes
   with_items:
     - "kafka"
@@ -24,7 +24,8 @@
   failed_when:
     - remove_service.failed == true
     - '"Could not find the requested service" not in remove_service.msg'
-- name: Install JRE after apt update
+
+- name: Remove JRE 
   become: yes
   apt:
     name: 
