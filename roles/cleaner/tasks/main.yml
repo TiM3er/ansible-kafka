@@ -6,7 +6,10 @@
   with_items:
     - "kafka"
     - "zookeeper"
-
+  register: stop_service
+  failed_when:
+    - stop_service.failed == true
+    - '"Could not find the requested service" not in stop_service.msg'
 - name: Install JRE after apt update
   become: yes
   apt:
@@ -17,7 +20,10 @@
     with_items:
     - "kafka"
     - "zookeeper"
-
+  register: remove_service
+  failed_when:
+    - remove_service.failed == true
+    - '"Could not find the requested service" not in remove_service.msg'
 - name: Install JRE after apt update
   become: yes
   apt:
