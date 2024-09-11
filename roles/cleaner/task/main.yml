@@ -1,6 +1,36 @@
-- name: install updates
-  tags: always
+- name: Stop Services
+  tags: startservices
+  become: yes
+  systemd:
+    name: '{{item}}'
+    state: absent
+  with_items:
+    - "kafka"
+    - "zookeeper"
+
+- name: Install JRE after apt update
+  become: yes
   apt:
-    upgrade: dist
+    name: 
+      - default-jre
+    state: absent
     update_cache: yes
 
+- name: Create a group 
+  become: yes
+  group:
+    name: kafka
+    state: absent
+
+- name: Create an user 
+  become: yes
+  user:
+    name: kafka
+    state: absent
+    group: kafka
+
+- name: Create a Directory /opt/kafka
+  become: yes
+  file:
+    path: "{{installation_dir}}"
+    state: absent

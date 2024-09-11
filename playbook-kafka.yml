@@ -6,7 +6,7 @@
       include_role:
         name: cleaner
 
-- hosts: kafka
+- hosts: brokers
   become: yes 
   tasks:
     - name: "Install Kafka"
