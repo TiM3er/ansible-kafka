@@ -1,7 +1,7 @@
 ---
 - hosts: all
   become: yes 
-  pre_tasks:
+  tasks:
     import_role:
       name: cleaner
 - hosts: kafka
