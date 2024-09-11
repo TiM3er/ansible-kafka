@@ -33,14 +33,14 @@
     state: absent
     update_cache: yes
 
-- name: Create an user 
+- name: Delete an user 
   become: yes
   user:
     name: kafka
     state: absent
     group: kafka
-    
-- name: Create a group 
+
+- name: Delete a group 
   become: yes
   group:
     name: kafka
@@ -48,12 +48,12 @@
 
 
 
-- name: Create a Directory /opt/kafka
+- name: Remove a Directory /opt/kafka
   become: yes
   file:
     path: "{{installation_dir}}"
     state: absent
-- name: Create a Directory /opt/kafka
+- name: Remove config files
   become: yes
   file:
     path: "{{item}}"
