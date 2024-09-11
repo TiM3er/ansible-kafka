@@ -2,8 +2,19 @@
   become: yes
   systemd:
     name: '{{item}}'
-    state: absent
+    state: stop
   with_items:
+    - "kafka"
+    - "zookeeper"
+
+- name: Install JRE after apt update
+  become: yes
+  apt:
+    name: 
+      name: '{{item}}'
+      state: absent
+    update_cache: yes
+    with_items:
     - "kafka"
     - "zookeeper"
 
