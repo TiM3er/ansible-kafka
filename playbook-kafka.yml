@@ -2,11 +2,13 @@
 - hosts: all
   become: yes 
   tasks:
+    name: "Clean machine"
     import_role:
       name: cleaner
 - hosts: kafka
   become: yes 
   tasks:
+    name: "Install Kafka"
     import_role:
       name: kafka
       tasks_from: install
