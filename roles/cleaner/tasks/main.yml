@@ -1,5 +1,4 @@
 - name: Stop Services
-  tags: startservices
   become: yes
   systemd:
     name: '{{item}}'
