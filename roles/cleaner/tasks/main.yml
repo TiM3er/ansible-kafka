@@ -51,7 +51,7 @@
 - name: Remove a Directory /opt/kafka
   become: yes
   file:
-    path: "{{installation_dir}}"
+    path: "{{installation_dir}}/"
     state: absent
     recurse: yes
 
