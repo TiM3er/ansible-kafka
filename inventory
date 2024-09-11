@@ -1,8 +1,8 @@
 [brokers]
-10.0.2.6 installation_dir=opt/kafka
-10.0.2.5 installation_dir=opt/kafka
+10.0.2.6 installation_dir=/opt/kafka
+10.0.2.5 installation_dir=/opt/kafka
 
 [zookeper]
-10.0.2.15 installation_dir=opt/kafka
-10.0.2.6 installation_dir=opt/kafka
-10.0.2.5 installation_dir=opt/kafka
+10.0.2.15 installation_dir=/opt/kafka
+10.0.2.6 installation_dir=/opt/kafka
+10.0.2.5 installation_dir=/opt/kafka
