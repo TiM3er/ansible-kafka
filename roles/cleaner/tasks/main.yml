@@ -33,18 +33,20 @@
     state: absent
     update_cache: yes
 
-- name: Create a group 
-  become: yes
-  group:
-    name: kafka
-    state: absent
-
 - name: Create an user 
   become: yes
   user:
     name: kafka
     state: absent
     group: kafka
+    
+- name: Create a group 
+  become: yes
+  group:
+    name: kafka
+    state: absent
+
+
 
 - name: Create a Directory /opt/kafka
   become: yes
