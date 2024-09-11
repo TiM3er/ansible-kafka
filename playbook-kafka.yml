@@ -2,8 +2,10 @@
 - hosts: all
   become: yes 
   pre_tasks:
-    - import_role:
+    import_role:
       name: cleaner
+- hosts: kafka
+  become: yes 
   tasks:
     import_role:
       name: kafka
