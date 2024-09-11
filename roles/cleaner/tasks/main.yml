@@ -53,6 +53,8 @@
   file:
     path: "{{installation_dir}}/"
     state: absent
+    recurse: yes
+
 - name: Remove config files
   become: yes
   file:
