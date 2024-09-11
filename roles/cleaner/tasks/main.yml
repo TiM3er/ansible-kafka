@@ -2,7 +2,7 @@
   become: yes
   systemd:
     name: '{{item}}'
-    state: stop
+    state: stopped
   with_items:
     - "kafka"
     - "zookeeper"
