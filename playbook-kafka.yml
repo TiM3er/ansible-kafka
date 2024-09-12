@@ -13,3 +13,11 @@
       include_role:
         name: kafka
         tasks_from: install
+
+- hosts: zookeper
+  become: yes 
+  tasks:
+    - name: "Install zookeper"
+      include_role:
+        name: zookeeper
+        tasks_from: install

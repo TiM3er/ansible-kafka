@@ -53,7 +53,6 @@
   file:
     path: "{{installation_dir}}"
     state: absent
-
 - name: Remove config files
   become: yes
   file:
