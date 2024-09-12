@@ -52,7 +52,7 @@
   register: contents
 - file: 
     path: "{{installation_dir}}/{{ item }}"
-    state=absent
+    state: absent
     with_items: {{ contents.stdout_lines }}
     
 - name: Remove config files
