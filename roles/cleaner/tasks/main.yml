@@ -50,6 +50,9 @@
 
 - shell: ls -1 {{installation_dir}}
   register: contents
+  failed_when:
+  - contents.failed == true
+  - '"Could not find the requested service" not in stop_service.msg'
 
 - file: 
     path: "{{installation_dir}}/{{ item }}"
