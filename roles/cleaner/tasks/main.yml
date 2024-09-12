@@ -50,14 +50,15 @@
 
 - shell: ls -1 {{installation_dir}}
   register: contents
-  failed_when:
-  - contents.failed == true
-  - '"Could not find the requested service" not in stop_service.msg'
+  ignore_errors: yes
+
 
 - file: 
     path: "{{installation_dir}}/{{ item }}"
     state: absent
   with_items: "{{ contents.stdout_lines }}"
+  ignore_errors: yes
+
     
 - name: Remove config files
   become: yes
@@ -67,3 +68,4 @@
   with_items:
     - "/etc/systemd/system/kafka.service"
     - "/etc/systemd/system/zookeeper.service"
+  ignore_errors: yes
