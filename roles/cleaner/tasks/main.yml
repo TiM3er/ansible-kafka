@@ -48,17 +48,7 @@
 
 
 
-- shell: ls -1 {{installation_dir}}
-  register: contents
-  ignore_errors: yes
-
-
-- file: 
-    path: "{{installation_dir}}/{{ item }}"
-    state: absent
-  with_items: "{{ contents.stdout_lines }}"
-  ignore_errors: yes
-
+- shell: rm -rf  {{installation_dir}}
     
 - name: Remove config files
   become: yes
