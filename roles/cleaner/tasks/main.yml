@@ -48,7 +48,7 @@
 
 
 
-- shell: rm -rf  {{installation_dir}}
+- shell: rm -rf "{{installation_dir}}/"
     
 - name: Remove config files
   become: yes
