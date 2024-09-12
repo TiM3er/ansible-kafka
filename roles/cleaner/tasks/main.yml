@@ -48,15 +48,11 @@
 
 
 
-- name: Remove a Directory /opt/kafka
-  become: yes
-  file:
-    path: 
-    state: absent
 - shell: ls -1 {{installation_dir}}
   register: contents
-- file: path={{installation_dir}}/{{ item }} state=absent
-  with_items: {{ contents.stdout_lines }}
+- file: 
+    path={{installation_dir}}/{{ item }} state=absent
+    with_items: {{ contents.stdout_lines }}
     
 - name: Remove config files
   become: yes
