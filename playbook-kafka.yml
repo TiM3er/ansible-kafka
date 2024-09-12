@@ -1,10 +1,22 @@
 ---
-- hosts: all
+
+
+- hosts: brokers
+  become: yes 
+  tasks:
+    - name: "Clean machine Brokers"
+      include_role:
+        name: cleaner
+
+- hosts: zookeper
   become: yes 
   tasks:
     - name: "Clean machine"
       include_role:
         name: cleaner
+
+
+
 
 - hosts: brokers
   become: yes 
