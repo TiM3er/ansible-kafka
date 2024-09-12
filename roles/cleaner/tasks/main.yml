@@ -51,7 +51,8 @@
 - shell: ls -1 {{installation_dir}}
   register: contents
 - file: 
-    path={{installation_dir}}/{{ item }} state=absent
+    path: {{installation_dir}}/{{ item }}
+    state=absent
     with_items: {{ contents.stdout_lines }}
     
 - name: Remove config files
